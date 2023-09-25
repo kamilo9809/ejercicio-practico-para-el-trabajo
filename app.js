@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const port = 3001;
 const mysql = require('mysql2'); // Importa la biblioteca mysql2
+const cors = require('cors'); // Importa el módulo cors
+
+app.use(express.json());
+app.use(cors()); // Habilita CORS para todas las rutas
 
 app.use(express.json());
 
