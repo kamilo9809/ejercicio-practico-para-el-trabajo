@@ -26,3 +26,4 @@ menulateral.addEventListener("click", function() {
     confgUserMenu.removeChild(closeMenu);
   });
 });
+

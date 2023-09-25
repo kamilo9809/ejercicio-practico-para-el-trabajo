@@ -17,9 +17,11 @@
     "html-webpack-plugin": "^5.5.3",
     "mongoose": "^7.5.2",
     "mysql": "^2.18.1",
+    "mysql2": "^3.6.1",
     "nodemon": "^3.0.1",
     "style-loader": "^3.3.3",
     "webpack": "^5.88.2",
-    "webpack-dev-middleware": "^6.1.1"
+    "webpack-dev-middleware": "^6.1.1",
+    "type": "module"
   }
 }
