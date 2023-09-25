@@ -1,0 +1,25 @@
+{
+  "name": "ejercicio-practico-para-el-trabajo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/src/server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Kamilo",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^6.8.1",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.1",
+    "html-webpack-plugin": "^5.5.3",
+    "mongoose": "^7.5.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.0.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-dev-middleware": "^6.1.1"
+  }
+}
