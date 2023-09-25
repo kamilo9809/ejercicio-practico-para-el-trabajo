@@ -7,6 +7,10 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.alto{
+    height: 200px;
+}
+
 .edimg{
     background-color: black;
     border-radius: 1em;
@@ -60,8 +64,7 @@ body{
     background-color: #1E1E1E;
 }
 
-/* .close{
-    display: flex;
-    position:  absolute;
-    justify-content: end;
-} */
+#userMenu{
+    background-color: #808080;
+    height: 585px;
+}

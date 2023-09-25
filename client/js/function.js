@@ -1,21 +1,28 @@
-// Obtener los elementos por su id
-var menulateral = document.querySelector("#menulateral");
-var userMenu = document.querySelector("#userMenu");
+const menulateral = document.querySelector("#menulateral");
+const userMenu = document.querySelector("#userMenu");
+const confgUserMenu = document.querySelector("#confgUserMenu");
 
-// Agregar evento de clic al elemento menulateral
 menulateral.addEventListener("click", function() {
-    // Cambiar la clase para mostrar el elemento userMenu
-    userMenu.classList.remove("d-none");
-    userMenu.classList.add("d-block");
-    menulateral.classList.add("d-none");
-    // Crear el elemento de botón
-    const closeButton = document.createElement("button");
-    closeButton.innerHTML = "❌";
-    closeButton.classList.add("close");
-    closeButton.classList.add("w-100")
-  
-    // Agregar el botón como hijo del elemento userMenu
-    userMenu.insertBefore(closeButton, userMenu.firstChild);
+  userMenu.classList.remove("d-none");
+  userMenu.classList.add("d-block");
+  confgUserMenu.classList.remove("ps-5");
+  confgUserMenu.classList.add("justify-content-end");
+  menulateral.classList.add("d-none");
+
+  const closeMenu = document.createElement("div");
+  closeMenu.innerHTML = "❌";
+  closeMenu.classList.add("close");
+  closeMenu.setAttribute("type", "button");
+
+  confgUserMenu.appendChild(closeMenu);
+
+  closeMenu.addEventListener("click", function() {
+    userMenu.classList.add("d-none");
+    userMenu.classList.remove("d-block");
+    confgUserMenu.classList.add("ps-5");
+    confgUserMenu.classList.remove("justify-content-end");
+    menulateral.classList.remove("d-none");
+
+    confgUserMenu.removeChild(closeMenu);
+  });
 });
-
-
