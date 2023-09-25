@@ -7,8 +7,6 @@ const cors = require('cors'); // Importa el módulo cors
 app.use(express.json());
 app.use(cors()); // Habilita CORS para todas las rutas
 
-app.use(express.json());
-
 // Configura la conexión a la base de datos MySQL
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -23,6 +21,22 @@ connection.connect((err) => {
   } else {
     console.log('Conexión exitosa a la base de datos MySQL');
   }
+});
+
+// Ruta para obtener información de todos los artistas
+app.get('/artists', (req, res) => {
+  // Realiza una consulta SQL para obtener todos los artistas
+  connection.query(
+    'SELECT * FROM artistamusical',
+    (err, results) => {
+      if (err) {
+        console.error('Error al obtener datos de los artistas:', err);
+        res.status(500).json({ error: 'Error al obtener datos de los artistas' });
+      } else {
+        res.json(results);
+      }
+    }
+  );
 });
 
 // Ruta para obtener información de un artista por su ID
