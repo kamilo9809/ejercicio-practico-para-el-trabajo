@@ -52,12 +52,12 @@
             </div>
             <div class=" d-flex flex-row ps-5 mt-2 w-100">
                 <div class="listmusic Fsecond shadow-sm me-3 pe-2 w-100 rounded">
-                    <h3 class=" titulos text-center">Lista</h3>
+                    <h3 class=" titulos text-center pt-2">Lista</h3>
                     <div id="contenedorCanciones" class="scrollbio ncancion">
                    <!--    <div class="d-flex flex-row justify-content-between w-100 ps-4 pe-4"><h5 id="numero de id" type="button" class="text-center textos">texto que trae la variable cancion</h5> <div>✖️</div></div>-->
                     </div>
                     <div class="w-100 mt-3 d-flex align-items-center justify-content-center">
-                        <button class="rounded lead bg-primary text-light w-25"><strong>agregar</strong></button>
+                        <button id="openModalBtn" class="rounded lead bg-primary text-light w-25"><strong>agregar</strong></button>
                     </div>
                     
                 </div>
@@ -98,14 +98,17 @@
 <!-------------------------------------------------------------------------------------------->
 
 
-                    <div class="btnsrepro">
-                        <button>
+                    <div class="btnsrepro w-100">
+                        <button id="btnprev" >
                             <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M493.6 445c-11.2 5.3-24.5 3.6-34.1-4.4L288 297.7V416c0 12.4-7.2 23.7-18.4 29s-24.5 3.6-34.1-4.4L64 297.7V416c0 17.7-14.3 32-32 32s-32-14.3-32-32V96C0 78.3 14.3 64 32 64s32 14.3 32 32V214.3L235.5 71.4c9.5-7.9 22.8-9.7 34.1-4.4S288 83.6 288 96V214.3L459.5 71.4c9.5-7.9 22.8-9.7 34.1-4.4S512 83.6 512 96V416c0 12.4-7.2 23.7-18.4 29z"/></svg>
                         </button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                        <button id="btnplay" class="svgplay">
+                            <svg  xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
                         </button>
-                        <button>
+                        <button id="btnpause" class="svgpaused hidden" >
+                            <svg  xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/></svg>
+                        </button>
+                        <button id="btnforward">
                             <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M18.4 445c11.2 5.3 24.5 3.6 34.1-4.4L224 297.7V416c0 12.4 7.2 23.7 18.4 29s24.5 3.6 34.1-4.4L448 297.7V416c0 17.7 14.3 32 32 32s32-14.3 32-32V96c0-17.7-14.3-32-32-32s-32 14.3-32 32V214.3L276.5 71.4c-9.5-7.9-22.8-9.7-34.1-4.4S224 83.6 224 96V214.3L52.5 71.4c-9.5-7.9-22.8-9.7-34.1-4.4S0 83.6 0 96V416c0 12.4 7.2 23.7 18.4 29z"/></svg>
                         </button>
                     </div>
@@ -114,13 +117,30 @@
     </div>
 
 
-    
+
+<!--------------------------------------------------------------------------------------------------------------------->
+    <dialog class="modalwindows w-50" >
+        <div class="mt-3 d-flex align-items-center justify-content-center" style="height: 200px;">
+            <form enctype="multipart/form-data" id="upload-form">
+                <div>
+                    <label for="file">Elija un archivo </label><input type="file" name="lista" accept=".mp3" required>
+                </div>
+                <input type="text" name="artistName" placeholder="Nombre del Artista" required>
+                <input type="text" name="biography" placeholder="Biografía" required>
+                <input type="file" name="artistPhoto" accept="image/*" required>
+                <div class="d-flex flex-row align-items-center justify-content-center">
+                    <button id="closemodal" type="submit" class="rounded lead bg-primary text-light w-25"><strong>Agregar</strong></button>
+                </div>
+            </form>
+        </div>
+    </dialog>
 
 
 
 
 
     <!----------------------------------------------------------------------->
+    <script src="./js/updatelist.js"></script>
     <script src="./js/function.js"></script>
     <script src="./js/addobject.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

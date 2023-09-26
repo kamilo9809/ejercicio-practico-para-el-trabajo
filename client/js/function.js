@@ -1,3 +1,4 @@
+//construcion menu lateral
 const menulateral = document.querySelector("#menulateral");
 const userMenu = document.querySelector("#userMenu");
 const confgUserMenu = document.querySelector("#confgUserMenu");
@@ -26,4 +27,41 @@ menulateral.addEventListener("click", function() {
     confgUserMenu.removeChild(closeMenu);
   });
 });
+
+//reproduccion y cambio de cancion
+const btnplay = document.querySelector("#btnplay");
+const btnprev = document.querySelector("#btnprev");
+const btnforward = document.querySelector("#btnforward");
+const audio = document.getElementById('cancionr');
+const svgPlay = document.querySelector('.svgplay');
+const svgPause = document.querySelector('svgpaused')
+
+btnplay.addEventListener('click', () => {
+  if (audio.paused) {
+      audio.play(); // Si está pausado, lo reproduzco
+  } else {
+      audio.pause(); // Si está reproduciéndose, lo pauso
+  }
+});
+
+
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('#closemodal');
+const modal = document.querySelector('.modalwindows');
+
+openModalBtn.addEventListener('click', () => {
+        modal.showModal();
+});
+
+closeModalBtn.addEventListener('click', ()=>{
+        modal.close();
+})
+
+    
+
+    
+
+
+
+
 

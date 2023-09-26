@@ -34,9 +34,8 @@
     background-color: transparent;
     color: inherit;
     border: none;
-    width: 50px;
-    height: 50px;
     transition: transform 0.2s;
+    fill: #CCCCCC;
 }
 
 .btnsrepro>button:active {
@@ -67,4 +66,8 @@ body{
 #userMenu{
     background-color: #808080;
     height: 585px;
+}
+
+.hidden{
+    visibility: hidden;
 }

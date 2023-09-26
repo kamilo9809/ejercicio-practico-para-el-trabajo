@@ -14,6 +14,7 @@ const connection = mysql.createConnection({
   database: 'ejerciciopruebamusical', // Nombre de la base de datos
 });
 
+
 // Establece la conexión a la base de datos
 connection.connect((err) => {
   if (err) {
